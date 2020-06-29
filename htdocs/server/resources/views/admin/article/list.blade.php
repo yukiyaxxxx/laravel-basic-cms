@@ -38,9 +38,23 @@
                                         {{ $article->date }}
                                     </td>
                                     <td>
-                                        <button class="btn btn-primary">
-                                            編集
-                                        </button>
+
+                                        <div class="btn-group">
+                                            <a href="{{ route('admin.article.edit', ['article' => $article->id]) }}">
+                                                <button class="btn btn-primary mr-2">
+                                                    編集
+                                                </button>
+                                            </a>
+
+                                            <form action="{{ route('admin.article.destroy', ['article' => $article->id]) }}" method="POST"
+                                                  onSubmit="if(!confirm('本当に削除しますか？')){return false;}">
+                                                @csrf
+                                                <button class="btn btn-danger">
+                                                    削除
+                                                </button>
+                                            </form>
+                                        </div>
+
                                     </td>
                                 </tr>
                             @endforeach

@@ -119,6 +119,7 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
+        session()->flash('status', '記事を削除しました。');
         return redirect()->route($this->routePrefix . 'list');
     }
 
