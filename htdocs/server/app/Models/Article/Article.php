@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer id
- * @property string category_slug
+ * @property string category_id
  * @property string title
  * @property string body
  * @property string date

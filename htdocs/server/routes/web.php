@@ -46,3 +46,31 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 // }
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// ログイン領域
+Route::group([
+    'middleware' => [
+        'auth'
+    ]
+], function () {
+    Route::prefix('admin')->group(function () {
+
+        Route::get('test', function () {
+            dd('test');
+        });
+
+
+        Route::prefix('article')->group(function () {
+            Route::get('', 'Admin\ArticleController@list')->name('admin.article.list');
+            Route::get('create', 'Admin\ArticleController@create')->name('admin.article.create');
+            Route::post('store', 'Admin\ArticleController@store')->name('admin.article.store');
+            Route::get('edit/{article}', 'Admin\ArticleController@edit')->name('admin.article.edit');
+            Route::post('update/{article}', 'Admin\ArticleController@update')->name('admin.article.update');
+            Route::post('destroy/{article}', 'Admin\ArticleController@destroy')->name('admin.article.destroy');
+        });
+
+
+    });
+});
+
