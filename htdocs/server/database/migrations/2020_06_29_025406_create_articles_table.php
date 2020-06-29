@@ -16,7 +16,7 @@ class CreateArticlesTable extends Migration
         Schema::create('article_articles', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('category_slug')->nullable()->comment('カテゴリスラッグ');
+            $table->unsignedInteger('category_id')->nullable()->comment('カテゴリID');
             $table->text('title')->nullable()->comment('タイトル');
             $table->longText('body')->nullable()->comment('本文');
             $table->dateTime('date')->nullable()->comment('記事日時');

@@ -68,6 +68,9 @@ RUN composer global require hirak/prestissimo
 RUN apt-get install -y libonig-dev
 RUN docker-php-ext-install mbstring
 
+#php.ini
+RUN echo 'memory_limit = -1' >> /usr/local/etc/php/php.ini
+
 #document root
 ARG document_root
 #ENV APACHE_DOCUMENT_ROOT /var/www

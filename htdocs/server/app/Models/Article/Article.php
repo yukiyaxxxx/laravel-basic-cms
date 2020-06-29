@@ -5,6 +5,7 @@ namespace App\Models\Article;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * @property integer id
  * @property string category_slug
  * @property string title
  * @property string body
@@ -20,7 +21,7 @@ class Article extends Model
     protected $table = 'article_articles';
 
     protected $fillable = [
-        'category_slug',
+        'category_id',
         'title',
         'body',
         'date',
@@ -47,7 +48,22 @@ class Article extends Model
      */
     public function category()
     {
-        return $this->hasOne(Category::class, 'slug', 'category_slug')->withDefault();
+        return $this->hasOne(Category::class, 'id', 'category_id')->withDefault();
+    }
+
+    /**
+     * フォーマット済み日付の取得
+     *
+     * @param string $format
+     * @return string|null
+     */
+    public function getFormatDate($format = 'Y-m-d H:i')
+    {
+        if (null == $this->date) {
+            return null;
+        }
+
+        return \Carbon::parse($this->date)->format($format);
     }
 
 }

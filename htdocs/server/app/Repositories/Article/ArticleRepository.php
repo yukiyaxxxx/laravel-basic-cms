@@ -37,17 +37,17 @@ class ArticleRepository extends Repository
      *
      * @param int $perPage
      * @param string $asc
+     * @param string $orderBy
      * @return mixed
      * @throws \Prettus\Repository\Exceptions\RepositoryException
      */
-    public function getPaginatePublish($perPage = 20, string $asc = 'DESC')
+    public function getPaginatePublish($perPage = 20, string $orderBy = 'date', string $asc = 'DESC')
     {
         $this->resetRepository();
 
         return $this->where('is_publish', '=', 1)
-            ->orderBy('date', 'DESC')
-            ->paginate($perPage)
-            ;
+            ->orderBy($orderBy, $asc)
+            ->paginate($perPage);
     }
 
 }
