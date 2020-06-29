@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('error', function(){
 
-    throw new \Exception('aaaaa');
+Route::prefix('article')->group(function () {
+
+    Route::get('', 'ArticleController@list')->name('article.list');
+    Route::get('detail/{article}', 'ArticleController@detail')->name('article.detail');
+
 });
