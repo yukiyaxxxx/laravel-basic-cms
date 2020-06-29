@@ -22,3 +22,7 @@ Route::prefix('article')->group(function () {
     Route::get('detail/{article}', 'ArticleController@detail')->name('article.detail');
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

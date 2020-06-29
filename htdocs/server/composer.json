@@ -13,6 +13,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0",
+        "laravel/ui": "1.*",
         "prettus/l5-repository": "^2.6",
         "tecpresso/laravel-allow-non-rfc-compliant-email-patch": "^1.1"
     },
