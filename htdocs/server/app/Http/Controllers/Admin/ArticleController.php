@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ArticleSaveRequest;
 use App\Models\Article\Article;
 use App\Repositories\Article\ArticleRepository;
 use App\Repositories\Article\CategoryRepository;
@@ -68,7 +69,7 @@ class ArticleController extends Controller
             ->with('categories', $categories);
     }
 
-    public function store(Request $request)
+    public function store(ArticleSaveRequest $request)
     {
         $article = $this->articleService->create($request->all());
 

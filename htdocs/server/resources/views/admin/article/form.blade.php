@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Dashboard</div>
+                    <div class="card-header">記事作成</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -24,6 +24,11 @@
                                     タイトル
                                 </label>
                                 <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                                @error('title')
+                                <p class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </p>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -36,6 +41,11 @@
                                         </label>
                                     </div>
                                 @endforeach
+                                @error('category_id')
+                                <p class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </p>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -43,6 +53,11 @@
                                     記事日付
                                 </label>
                                 <input type="text" class="form-control" name="date" value="{{ old('date') }}">
+                                @error('date')
+                                <p class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </p>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -50,6 +65,11 @@
                                     本文
                                 </label>
                                 <textarea name="body" class="form-control" rows="10">{!! old('body') !!}</textarea>
+                                @error('body')
+                                <p class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </p>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -67,8 +87,12 @@
                                         公開
                                     </label>
                                 </div>
+                                @error('is_publish')
+                                <p class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </p>
+                                @enderror
                             </div>
-
 
                             <div class="form-group">
                                 <button class="btn-primary form-control">
