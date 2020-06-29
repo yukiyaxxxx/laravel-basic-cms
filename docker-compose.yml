@@ -1,0 +1,67 @@
+version: '3'
+
+volumes:
+  mysql_volume:
+    driver: 'local'
+
+services:
+
+  db:
+    image: mysql:${MYSQL_VERSION}
+    ports:
+      - "${PORT_MYSQL}:3306"
+    command: >
+      mysqld
+          --character-set-server=utf8mb4
+          --collation-server=utf8mb4_unicode_520_ci
+          --skip-character-set-client-handshake
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${COMPOSE_PROJECT_NAME}
+      MYSQL_USER: ${COMPOSE_PROJECT_NAME}
+      MYSQL_PASSWORD: ${COMPOSE_PROJECT_NAME}
+      TZ: Asia/Tokyo
+    volumes:
+      - mysql_volume:/var/lib/mysql
+
+  # MySQL test
+  db_test:
+    image: mysql:${MYSQL_VERSION}
+    command: >
+      mysqld
+          --character-set-server=utf8
+          --collation-server=utf8_unicode_ci
+          --skip-character-set-client-handshake
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${COMPOSE_PROJECT_NAME}_test
+      MYSQL_USER: ${COMPOSE_PROJECT_NAME}_test
+      MYSQL_PASSWORD: ${COMPOSE_PROJECT_NAME}_test
+      TZ: Asia/Tokyo
+  #        volumes:
+  #            - mysql_volume_test:/var/lib/mysql
+
+  web:
+    container_name: ${COMPOSE_PROJECT_NAME}_php
+    build:
+      context: ./docker/apache_php
+      args:
+        php_version: ${PHP_VERSION}
+        document_root: ${DOCUMENT_ROOT}
+    depends_on:
+      - db
+    ports:
+      - "${PORT_APACHE}:80"
+    volumes:
+      - "${WEB_VOLUME}"
+  #        - ./docker/apache_php/apache2.conf:/etc/apache2/apache2.conf
+  #        - ./docker/apache_php/vhosts.conf:/etc/apache2/sites-enabled/vhosts.conf
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    ports:
+      - "${PORT_PHPMYADMIN}:80"
+
+
