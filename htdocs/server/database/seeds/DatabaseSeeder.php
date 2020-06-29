@@ -13,8 +13,12 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
-
         $faker = \Faker\Factory::create();
+
+        $user = new \App\Models\User();
+        $user->email = 'test@example.com';
+        $user->password = \Hash::make('123456a');
+        $user->save();
 
 
         \App\Models\Article\Category::create([
