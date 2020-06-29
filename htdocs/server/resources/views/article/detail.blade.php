@@ -8,6 +8,9 @@
         </h3>
 
         <p>
+            [{{ $article->category->title }}]
+        </p>
+        <p>
             {{ $article->getFormatDate('Y.m.d') }}
         </p>
 
