@@ -50,4 +50,25 @@ class ArticleRepository extends Repository
             ->paginate($perPage);
     }
 
+
+
+    /**
+     * 管理画面用ページネーションを取得
+     *
+     * @param int $perPage
+     * @param string $asc
+     * @param string $orderBy
+     * @return mixed
+     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     */
+    public function getPaginateAdmin($perPage = 20, string $orderBy = 'date', string $asc = 'DESC')
+    {
+        $this->resetRepository();
+
+        return $this->orderBy($orderBy, $asc)
+            ->paginate($perPage);
+    }
+
+
+
 }

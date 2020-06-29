@@ -58,4 +58,42 @@ class ArticleRepositoryTest extends TestCase
         $this->assertEquals([1, 3, 4], $articles->pluck('id')->toArray());
     }
 
+
+    /**
+     * 公開用ページネーションを取得 のテスト
+     */
+    public function testGetPaginateAdmin()
+    {
+        $article = new Article();
+        $article->id = 1;
+        $article->date = '2020-01-14 12:00:00';
+        $article->is_publish = 1;
+        $article->save();
+
+        // 非公開記事
+        $article = new Article();
+        $article->id = 2;
+        $article->date = '2020-01-15 12:00:00';
+        $article->is_publish = 0;
+        $article->save();
+
+        $article = new Article();
+        $article->id = 3;
+        $article->date = '2020-01-16 12:00:00';
+        $article->is_publish = 1;
+        $article->save();
+
+        $article = new Article();
+        $article->id = 4;
+        $article->date = '2020-01-17 12:00:00';
+        $article->is_publish = 1;
+        $article->save();
+
+        $articles = $this->repository->getPaginateAdmin(10);
+        $this->assertEquals([4, 3, 2, 1], $articles->pluck('id')->toArray());
+
+        $articles = $this->repository->getPaginateAdmin(10, 'date', 'ASC');
+        $this->assertEquals([1, 2, 3, 4], $articles->pluck('id')->toArray());
+    }
+
 }

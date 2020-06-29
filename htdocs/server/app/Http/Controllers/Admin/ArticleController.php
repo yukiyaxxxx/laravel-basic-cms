@@ -37,7 +37,7 @@ class ArticleController extends Controller
      */
     public function list(Request $request)
     {
-        $paginate = $this->articleRepository->getPaginate(20);
+        $paginate = $this->articleRepository->getPaginateAdmin();
 
         return view($this->viewPrefix . 'list')
             ->with('paginate', $paginate);
