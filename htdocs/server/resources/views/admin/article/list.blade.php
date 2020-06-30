@@ -17,6 +17,10 @@
 
                         {{ $paginate->links() }}
 
+                        <a href="{{ route('admin.article.create') }}" class="btn btn-primary mb-4">
+                            + 新規作成
+                        </a>
+
                         <table class="table">
 
                             <tr>

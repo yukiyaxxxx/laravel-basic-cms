@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         $user = new \App\Models\User();
+        $user->name = 'test';
         $user->email = 'test@example.com';
         $user->password = \Hash::make('123456a');
         $user->save();
