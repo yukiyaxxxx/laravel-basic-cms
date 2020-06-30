@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+@section('breadcrumb')
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">ホーム</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+            <a href="{{ route('admin.article.list') }}">
+                記事一覧
+            </a>
+        </li>
+    </ol>
+@endsection
 
 @section('content')
     <div class="container">

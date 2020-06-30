@@ -72,6 +72,10 @@
             </div>
         </nav>
 
+        <nav aria-label="パンくずリスト">
+                @yield('breadcrumb')
+        </nav>
+
         <main class="py-4">
             @yield('content')
         </main>
