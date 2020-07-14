@@ -23,7 +23,6 @@ class ArticleSaveRequestTest extends TestCase
             'body'        => '本文',
             'date'        => '2020-05-01 12:00:00',
             'is_publish'  => 1,
-
         ];
 
         $this->request = new ArticleSaveRequest();
