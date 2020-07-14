@@ -22,7 +22,7 @@ services:
       MYSQL_PASSWORD: ${COMPOSE_PROJECT_NAME}
       TZ: Asia/Tokyo
     volumes:
-      - mysql_volume:/var/lib/mysql
+      - mysql_volume:/var/lib/mysql:delegated
 
   # MySQL test
   db_test:
@@ -53,7 +53,7 @@ services:
     ports:
       - "${PORT_APACHE}:80"
     volumes:
-      - "${WEB_VOLUME}"
+      - "${WEB_VOLUME}:delegated"
   #        - ./docker/apache_php/apache2.conf:/etc/apache2/apache2.conf
   #        - ./docker/apache_php/vhosts.conf:/etc/apache2/sites-enabled/vhosts.conf
 
