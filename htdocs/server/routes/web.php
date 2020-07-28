@@ -17,10 +17,8 @@ Route::get('/', function () {
 
 
 Route::prefix('article')->group(function () {
-
     Route::get('', 'ArticleController@list')->name('article.list');
-    Route::get('detail/{article}', 'ArticleController@detail')->name('article.detail');
-
+    Route::get('detail/{article}', 'ArticleController@detail')->name('article.detail')->middleware(['published:article']);
 });
 
 // Auth::routes();

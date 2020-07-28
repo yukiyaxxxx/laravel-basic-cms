@@ -40,10 +40,6 @@ class ArticleController extends Controller
      */
     public function detail(Article $article)
     {
-        if (false == $article->isPublish()) {
-            abort(404);
-        }
-
         return view($this->viewPrefix . 'detail')
             ->with('article', $article);
     }
