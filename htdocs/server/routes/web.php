@@ -21,6 +21,13 @@ Route::prefix('article')->group(function () {
     Route::get('detail/{article}', 'ArticleController@detail')->name('article.detail')->middleware(['published:article']);
 });
 
+
+Route::prefix('inquiry')->group(function () {
+    Route::get('form', 'InquiryController@form')->name('inquiry.form');
+    Route::post('post', 'InquiryController@post')->name('inquiry.post');
+    Route::get('thanks', 'InquiryController@thanks')->name('inquiry.thanks');
+});
+
 // Auth::routes();
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
