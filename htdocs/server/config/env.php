@@ -5,6 +5,8 @@
 return [
     // 管理画面URLハッシュ
     'admin_url'          => env('ADMIN_URL', 'admin'),
+    // 管理者メールアドレス
+    'admin_email'          => env('ADMIN_EMAIL', 'admin@example.com'),
     // 強制SSL
     'force_ssl' => env('FORCE_SSL', false),
     // ベーシック認証
