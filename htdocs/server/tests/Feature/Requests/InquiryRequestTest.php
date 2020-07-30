@@ -18,7 +18,7 @@ class InquiryRequestTest extends TestCase
 
         $this->request = new InquiryRequest();
         $this->placeholder = [
-            'type'  => 'type',
+            'type'  => 'type1',
             'name'  => 'name',
             'email' => 'test@example.com',
             'body'  => 'body',
@@ -60,7 +60,10 @@ class InquiryRequestTest extends TestCase
     public function dataProviderType()
     {
         return [
-            'type'        => ['type', true],
+            'type1'       => ['type1', true],
+            'type2'       => ['type2', true],
+            'type3'       => ['type3', true],
+            'type4'       => ['type4', false],
             'null'        => [null, false],
             'null_string' => ['', false],
         ];

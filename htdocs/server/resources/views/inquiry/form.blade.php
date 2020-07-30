@@ -9,7 +9,15 @@
     @csrf
 
     <label>種別</label>
-    <input type="text" name="type" value="{{ old('type') }}">
+
+    @foreach($inquiryTypes as $key => $value)
+        <label>
+            <input type="radio" name="type" value="{{ $key }}" @if($key == old('type'))  checked @endif>
+            {{ $value }}
+        </label>
+    @endforeach
+
+    {{--    <input type="text" name="type" value="{{ old('type') }}">--}}
     @error('type')
     <p class="error">
         {{ $message }}

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\InquiryType;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class InquiryRequest extends FormRequest
 {
@@ -34,7 +36,7 @@ class InquiryRequest extends FormRequest
             'type'  => [
                 'required',
                 'string',
-                // TODO:in
+                Rule::in(InquiryType::getValues())
             ],
             'name'  => [
                 'required',

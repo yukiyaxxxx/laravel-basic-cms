@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\InquiryType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InquiryRequest;
 use App\Models\Article\Article;
@@ -39,7 +40,8 @@ class InquiryController extends Controller
         }
 
         return view($this->viewPrefix . 'form')
-            ->with('actionUrl', route($this->routePrefix . 'post'));
+            ->with('actionUrl', route($this->routePrefix . 'post'))
+            ->with('inquiryTypes', InquiryType::toSelectArray());
     }
 
     /**
@@ -72,7 +74,8 @@ class InquiryController extends Controller
         }
 
         return view($this->viewPrefix . $viewFile)
-            ->with('actionUrl', route($this->routePrefix . 'post'));
+            ->with('actionUrl', route($this->routePrefix . 'post'))
+            ->with('inquiryTypes', InquiryType::toSelectArray());
     }
 
     /**

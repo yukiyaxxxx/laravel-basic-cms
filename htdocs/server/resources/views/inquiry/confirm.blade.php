@@ -2,24 +2,27 @@
 
     @csrf
 
-
     <label>種別</label>
-    <input type="text" name="type" value="{{ old('type') }}">
+    {{ $inquiryTypes[old('type')] }}
+    <input type="hidden" name="type" value="{{ old('type') }}">
 
     <br><br>
 
     <label>氏名</label>
-    <input type="text" name="name" value="{{ old('name') }}">
+    {{ old('name') }}
+    <input type="hidden" name="name" value="{{ old('name') }}">
 
     <br><br>
 
     <label>メールアドレス</label>
-    <input type="text" name="email" value="{{ old('email') }}">
+    {{ old('email') }}
+    <input type="hidden" name="email" value="{{ old('email') }}">
 
     <br><br>
 
     <label>本文</label>
-    <textarea name="body" >{{ old('body') }}</textarea>
+    {!!  nl2br(e(old('body'))) !!}
+    <input type="hidden" name="body" value="{{ old('body') }}">
 
     <br><br>
 
