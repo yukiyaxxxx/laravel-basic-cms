@@ -1,3 +1,7 @@
+@extends('layouts.base')
+
+@section('main')
+
 <form action="{{ $actionUrl }}" method="POST">
 
     @csrf
@@ -31,3 +35,4 @@
 
 </form>
 
+@endsection

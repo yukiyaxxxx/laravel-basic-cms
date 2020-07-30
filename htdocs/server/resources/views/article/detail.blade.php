@@ -1,6 +1,5 @@
 @extends('layouts.base')
 
-
 @section('main')
     <section>
         <h3>
