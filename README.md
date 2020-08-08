@@ -17,7 +17,7 @@ http://localhost:8089
 ### ■ admin
 http://localhost:8080/admin/login<br>
 
-* admin / 1234
+* test@example.com / 123456a
 
 ----
 

@@ -60,7 +60,7 @@ class ArticleRepositoryTest extends TestCase
 
 
     /**
-     * 公開用ページネーションを取得 のテスト
+     * 管理ページネーションを取得 のテスト
      */
     public function testGetPaginateAdmin()
     {

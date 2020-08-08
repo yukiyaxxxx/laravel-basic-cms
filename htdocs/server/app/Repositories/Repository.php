@@ -7,16 +7,6 @@ use Prettus\Repository\Eloquent\BaseRepository;
 
 abstract class Repository extends BaseRepository
 {
-    /**
-     * 初期化
-     *
-     * @throws \Prettus\Repository\Exceptions\RepositoryException
-     */
-    public function resetRepository()
-    {
-        $this->resetModel();
-        $this->boot();
-    }
 
     /**
      * l5-repositoryのfindはデフォルトではfindOrFailなので上書く
