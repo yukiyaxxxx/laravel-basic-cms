@@ -54,8 +54,6 @@ services:
       - "${PORT_APACHE}:80"
     volumes:
       - "${WEB_VOLUME}:delegated"
-  #        - ./docker/apache_php/apache2.conf:/etc/apache2/apache2.conf
-  #        - ./docker/apache_php/vhosts.conf:/etc/apache2/sites-enabled/vhosts.conf
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
