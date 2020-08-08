@@ -4,7 +4,7 @@
 
     {{ $paginate->links() }}
 
-    <ul>
+    <ul class="articleList">
         @foreach($paginate as $article)
             <li>
                 <a href="{{ route('article.detail', ['article' => $article]) }}">
