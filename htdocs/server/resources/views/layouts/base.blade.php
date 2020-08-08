@@ -8,7 +8,20 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
     <style>
+
+        html,body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        a {
+            color: #888;
+            text-decoration: underline;
+        }
+
         .error {
             color: #f00;
         }
@@ -17,7 +30,6 @@
             display: flex;
             margin-bottom: 30px;
         }
-
 
         .gnav li {
             margin-right: 30px;
