@@ -4,7 +4,7 @@
 * laravel6.0 (php7.2↑)
 * php7.4
 * mysql5.7
-* node v12.13.1
+* node v12.18.3
 * npm 6.12.1
 
 ###URL 
