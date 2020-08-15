@@ -23,10 +23,8 @@ http://localhost:8080/admin/login<br>
 
 ## project initialize
 1. git clone
-1. cd ./basic-cms
-1. docker-compose up -d
 1. sh init.sh
-1. sh db.sh
+1. sh db_reset.sh
 1. http://localhost:8080
 
 
