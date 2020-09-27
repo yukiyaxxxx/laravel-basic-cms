@@ -21,7 +21,7 @@ class InquiryControllerTest extends TestCase
         \Mail::fake();
 
         $params = [
-            'type'       => 'type',
+            'type'       => 'type1',
             'email'      => 'email@example.com',
             'name'       => 'name',
             'body'       => 'body',
@@ -30,6 +30,7 @@ class InquiryControllerTest extends TestCase
 
         // サンクスメール検証
         $response = $this->post(route('inquiry.post'), $params);
+        // dump(session()->all());
         $response->assertStatus(200);
         $response->assertSee(route('inquiry.post'));
     }
@@ -39,7 +40,7 @@ class InquiryControllerTest extends TestCase
         \Mail::fake();
 
         $params = [
-            'type'       => 'type',
+            'type'       => 'type1',
             'email'      => 'email@example.com',
             'name'       => 'name',
             'body'       => 'body',
