@@ -35,11 +35,8 @@ http://localhost:8080/admin/login<br>
 ##### IDE helper<br>
 https://github.com/barryvdh/laravel-ide-helper
 
-##### l5-repository<br>
-https://github.com/andersao/l5-repository<br>
-https://qiita.com/smith-30/items/e9f26bce158343ef3c83<br>
-
-<br>
+##### laravel-simple-repository
+https://github.com/yukiyaxxxx/laravel-simple-repository
 
 ##### laravel-enum
 https://github.com/BenSampo/laravel-enum<br>
