@@ -21,7 +21,7 @@
                   + 新規作成
                 </inertia-link>
 
-                <!--                {{ $paginate->links() }}-->
+                <links :paginate="paginate"></links>
 
                 <table class="table">
 
@@ -65,7 +65,7 @@
                   </tr>
                 </table>
 
-                <!--                {{ $paginate->links() }}-->
+                <links :paginate="paginate"></links>
 
               </div>
             </div>
@@ -79,8 +79,15 @@
 </template>
 
 <script>
+
+import Links from '../../../components/Links'
+
 export default {
   name: "List",
+  components: {
+    links: Links
+
+  },
   props: {
     status: String,
     errors: Object,

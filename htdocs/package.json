@@ -27,6 +27,7 @@
         "@inertiajs/inertia": "^0.6.1",
         "@inertiajs/inertia-vue": "^0.4.1",
         "@types/ziggy-js": "^0.9.0",
+        "laravel-vue-pagination": "^2.3.1",
         "ziggy-js": "^0.9.4"
     }
 }
