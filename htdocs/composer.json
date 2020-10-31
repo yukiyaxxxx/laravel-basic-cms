@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "1.*",
         "tecpresso/laravel-allow-non-rfc-compliant-email-patch": "^1.1",
+        "tightenco/ziggy": "^0.9.4",
         "yukiyaxxxx/laravel-simple-repository": "dev-master"
     },
     "require-dev": {

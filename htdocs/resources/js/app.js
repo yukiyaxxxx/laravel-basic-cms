@@ -9,6 +9,8 @@ import Vue from 'vue'
 
 require('./bootstrap');
 
+import route from 'ziggy-js';
+// import { Ziggy } from 'ziggy-js';
 // window.Vue = require('vue');
 
 /**
@@ -30,9 +32,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// inertia
 Vue.use(plugin)
 
 const el = document.getElementById('app')
+
+// Ziggy.js
+Vue.prototype.$route = (...args) => route(...args).url()
 
 new Vue({
     render: h => h(App, {

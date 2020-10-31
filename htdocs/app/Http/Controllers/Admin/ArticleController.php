@@ -9,6 +9,7 @@ use App\Repositories\Article\ArticleRepository;
 use App\Repositories\Article\CategoryRepository;
 use App\Services\Article\ArticleService;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ArticleController extends Controller
 {
@@ -45,28 +46,17 @@ class ArticleController extends Controller
 
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|\Inertia\Response
      */
     public function create(Request $request)
     {
-        // 初回のみ
-        if (false == $request->session()->has('errors')
-        ) {
-            // 破棄
-            $request->flush();
-
-            // 初期値
-            $values = [
-            ];
-
-            $request->session()->flashInput($values);
-        }
-
         $categories = $this->categoryRepository->all();
 
-        return view($this->viewPrefix . 'form')
-            ->with('actionUrl', route($this->routePrefix . 'store'))
-            ->with('categories', $categories);
+        return Inertia::render('Admin/Article/Form', [
+            'actionUrl' => route($this->routePrefix . 'store'),
+            'categories' => $categories
+        ]);
     }
 
     public function store(ArticleSaveRequest $request)
@@ -81,29 +71,13 @@ class ArticleController extends Controller
 
     public function edit(Article $article, Request $request)
     {
-        // 初回のみ
-        if (false == $request->session()->has('errors')
-        ) {
-            // 破棄
-            $request->flush();
-
-            // 初期値
-            $values = [
-                'category_id' => $article->category_id,
-                'title'       => $article->title,
-                'body'        => $article->body,
-                'date'        => $article->date,
-                'is_publish'  => $article->is_publish,
-            ];
-
-            $request->session()->flashInput($values);
-        }
-
         $categories = $this->categoryRepository->all();
 
-        return view($this->viewPrefix . 'form')
-            ->with('actionUrl', route($this->routePrefix . 'update', ['article' => $article->id]))
-            ->with('categories', $categories);
+        return Inertia::render('Admin/Article/Form', [
+            'actionUrl' => route($this->routePrefix . 'store'),
+            'categories' => $categories,
+            'values' => $article->toArray()
+        ]);
     }
 
     public function update(Article $article, Request $request)
