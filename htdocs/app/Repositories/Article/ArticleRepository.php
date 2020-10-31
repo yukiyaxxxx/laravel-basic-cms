@@ -5,20 +5,22 @@ namespace App\Repositories\Article;
 use App\Models\Article\Article;
 use App\Repositories\Repository;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
-use Prettus\Repository\Eloquent\BaseRepository;
+
+// use Prettus\Repository\Eloquent\BaseRepository;
+use Yukiyaxxxx\LaravelSimpleRepository\Eloquent\BaseRepository;
 
 /**
  * Class RuleRepository
  * @package App\Repositories\Rule
  */
-class ArticleRepository extends Repository
+class ArticleRepository extends BaseRepository
 {
     /**
      * @return string
      */
     function model()
     {
-        return Article::class;
+        return new Article();
     }
 
 
@@ -31,18 +33,15 @@ class ArticleRepository extends Repository
      * @return mixed
      * @throws \Prettus\Repository\Exceptions\RepositoryException
      */
+
+
     public function getPaginatePublish($perPage = 20, string $orderBy = 'date', string $asc = 'DESC')
     {
-        $this->applyCriteria();
-        $this->applyScope();
-        $model = $this->where('is_publish', '=', 1)
+        $query = $this->newQuery();
+        return $query->where('is_publish', '=', 1)
             ->orderBy($orderBy, $asc)
             ->paginate($perPage);
-        $this->resetModel();
-
-        return $this->parserResult($model);
     }
-
 
 
     /**
@@ -56,12 +55,8 @@ class ArticleRepository extends Repository
      */
     public function getPaginateAdmin($perPage = 20, string $orderBy = 'date', string $asc = 'DESC')
     {
-        $this->applyCriteria();
-        $this->applyScope();
-        $model = $this->orderBy($orderBy, $asc)
+        $query = $this->newQuery();
+        return $query->orderBy($orderBy, $asc)
             ->paginate($perPage);
-        $this->resetModel();
-
-        return $this->parserResult($model);
     }
 }
