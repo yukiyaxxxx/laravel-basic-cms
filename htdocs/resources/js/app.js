@@ -4,9 +4,12 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import { App, plugin } from '@inertiajs/inertia-vue'
+import Vue from 'vue'
+
 require('./bootstrap');
 
-window.Vue = require('vue');
+// window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -27,6 +30,16 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
+Vue.use(plugin)
+
+const el = document.getElementById('app')
+
+new Vue({
+    render: h => h(App, {
+        props: {
+            initialPage: JSON.parse(el.dataset.page),
+            resolveComponent: name => require(`./Pages/${name}`).default,
+        },
+    }),
+}).$mount(el)
+

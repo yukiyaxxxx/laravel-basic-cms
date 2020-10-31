@@ -50,7 +50,7 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 //     $this->emailVerification();
 // }
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 
 // ログイン領域
@@ -65,6 +65,7 @@ Route::group([
             dd('test');
         });
 
+        Route::get('/home', 'Admin\IndexController@index')->name('home');
 
         Route::prefix('article')->group(function () {
             Route::get('', 'Admin\ArticleController@list')->name('admin.article.list');
