@@ -56,7 +56,8 @@ class ArticleRepository extends BaseRepository
     public function getPaginateAdmin($perPage = 20, string $orderBy = 'date', string $asc = 'DESC')
     {
         $query = $this->newQuery();
-        return $query->orderBy($orderBy, $asc)
+        return $query->with($this->model()->withRelations)
+            ->orderBy($orderBy, $asc)
             ->paginate($perPage);
     }
 }

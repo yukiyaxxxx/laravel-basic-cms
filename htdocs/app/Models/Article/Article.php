@@ -28,8 +28,9 @@ class Article extends Model
         'is_publish',
     ];
 
-    // public $withRelations = [
-    // ];
+    public $withRelations = [
+        'category'
+    ];
 
     /**
      * 公開状態か

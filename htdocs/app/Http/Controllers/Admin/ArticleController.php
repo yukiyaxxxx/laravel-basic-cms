@@ -33,15 +33,15 @@ class ArticleController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     * @return \Inertia\Response
      */
     public function list(Request $request)
     {
         $paginate = $this->articleRepository->getPaginateAdmin();
 
-        return view($this->viewPrefix . 'list')
-            ->with('paginate', $paginate);
+        return Inertia::render('Admin/Article/List', [
+            'paginate' => $paginate
+        ]);
     }
 
 
