@@ -31,8 +31,8 @@ Route::prefix('inquiry')->group(function () {
 // Auth::routes();
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::post('login/post', 'Auth\LoginController@login')->name('login.post');;
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // // Password Reset Routes...
 // if ($options['reset'] ?? true) {

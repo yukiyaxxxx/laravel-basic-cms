@@ -36,6 +36,9 @@ class AppServiceProvider extends ServiceProvider
                     ? \Session::get('status')
                     : '';
             },
+            'auth_admin' => function(){
+                return \Auth::user();
+            }
         ]);
     }
 }

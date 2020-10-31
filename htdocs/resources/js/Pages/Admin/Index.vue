@@ -1,6 +1,7 @@
 <template>
   <div>
 
+    <admin-nav :auth_admin="auth_admin"></admin-nav>
 
     <nav aria-label="パンくずリスト">
 <!--          @yield('breadcrumb')-->
@@ -35,7 +36,8 @@ export default {
   name: "Index",
   props: {
     status: String,
-    errors: Object
+    errors: Object,
+    auth_admin: Object
   },
   mounted(){
   }

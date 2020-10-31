@@ -1,6 +1,8 @@
 <template>
   <div>
 
+    <admin-nav :auth_admin="auth_admin"></admin-nav>
+
     <nav aria-label="パンくずリスト">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
@@ -121,7 +123,8 @@ export default {
     errors: Object,
     values: Object,
     categories: Array,
-    actionUrl: String
+    actionUrl: String,
+    auth_admin: Object
   },
   data() {
     return {
