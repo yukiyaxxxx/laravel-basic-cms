@@ -46,7 +46,7 @@ class InquiryRequest extends FormRequest
             'email' => [
                 'required',
                 'string',
-                'email',
+                'email:filter',
             ],
             'body'  => [
                 'required',
